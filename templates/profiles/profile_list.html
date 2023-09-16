@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile_lists</title>
+</head>
+<style>
+body{font-family: system-ui;
+     background-image:url("{%static 'images/photo-1638864616275-9f0b291a2eb6.jpg'%}");
+     background-repeat: no-repeat;
+     width: 100%;
+     height: auto;
+     background-size: cover;
+     }
+    h1{
+    color: white;
+    font-size: 2.5rem;
+    }
+    ul li {
+  background: #cce5ff;
+  color: darkblue;
+  margin: 5px;
+  padding: 1.5rem 1.5rem;
+   }
+
+</style>
+<body>
+<h1>Profiles</h1>
+    <ul>
+        {% for profile in profiles %}
+            <li><a href="{% url 'profile_detail' profile.id %}">{{ profile.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

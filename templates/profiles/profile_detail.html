@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>{{ profile.name }}</title>
+
+</head>
+<style>
+    body{
+     background-image:url("{%static 'images/photo-1638864616275-9f0b291a2eb6.jpg'%}");
+     background-repeat: no-repeat;
+     width: 100%;
+     height: auto;
+     background-size: cover;
+    }
+    h1{ color: white;
+    font-weight: normal;
+    font-size: 4rem;
+    margin-top: 5rem;
+    }
+    h3{
+     color: white;
+    font-weight: normal;
+    font-size: ;
+    margin-top: ;
+    }
+    p{
+    max-width:90rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border:.1rem solid rgba(0,0,0,.2);
+    background:#837E7C;
+    padding:1.5rem 1.5rem;
+    margin:80px 120px;
+    }
+    a{
+    font-size: 24px;
+    line-height: 1.25;
+    place-self: center;
+    text-decoration: none;
+    color:#3D3C3A;
+    position:relative;
+    background: ;
+    color: white;
+    height: 100px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  &:after {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid;
+    transform: scaleX(0);
+    transform-origin: 100% 100%;
+    transition: transform .6s;
+    transition-timing-function: cubic-bezier(.39,.575,.28,.995);
+  }
+  &:hover {
+    &:after {
+      transform: scaleX(1);
+      transform-origin: 0 0;
+    }
+  }
+    }
+</style>
+<body>
+    <h1>{{ profile.name }}</h1>
+    <img src="{%static '{profile.photo.url}' %}" alt="{{ profile.name }} Photo">
+    <h3>Description</h3>
+    <p>{{ profile.description }}</p>
+    <a href="https://www.google.com/maps/place/Star+Giga+Net/@18.6460556,73.7594041,15.9z/data=!4m6!3m5!1s0x3bc2b9e927bf0497:0xea4c55d491f303c8!8m2!3d18.6456723!4d73.7664645!16s%2Fg%2F11c2bsv37y?authuser=0&entry=ttu" id="show-map">Show on Map</a>
+    {% for i in photo %}
+       <div style="height:300px width:300px border:1px solid black">
+          <img src="{{ profile.photo.url }}" height="200px" />
+       </div>
+    {% endfor %}
+</body>
+</html>

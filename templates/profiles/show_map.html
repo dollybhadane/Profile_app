@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile_map</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+<body>
+ <h1>{{ profile.name }} - Location</h1>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <script>
+        var latitude = {{ latitude }};
+        var longitude = {{ longitude }};
+
+        // Create a map centered at the specified coordinates.
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: latitude, lng: longitude },
+            zoom: 15 // You can adjust the zoom level as needed.
+        });
+
+        // Create a marker to show the location on the map.
+        var marker = new google.maps.Marker({
+            position: { lat: latitude, lng: longitude },
+            map: map,
+            title: 'Location Name' // You can set a custom title for the marker.
+        });
+    </script>
+</body>
+</html>
